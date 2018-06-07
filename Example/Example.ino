@@ -1,4 +1,6 @@
-#include "../Debug.hpp"
+#define PRINTSTREAM_FALLBACK
+#define DEBUG_OUT Serial
+#include "Debug.hpp"
 
 void setup() {
   Serial.begin(115200);
