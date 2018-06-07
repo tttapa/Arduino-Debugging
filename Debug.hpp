@@ -1,23 +1,41 @@
 #ifndef DEBUG
-#include <PrintStream.h>
+
+#ifdef ARDUINO
 
 // #define DEBUG_OUT Serial // Uncomment this line to override Arduino IDE debug level
 
+#include <PrintStream.h>
+
+#else // No Arduino
+
+#include <iostream>
+#include <iomanip>
+using std::cout;
+using std::endl;
+using std::setbase;
+using std::setprecision;
+using std::dec;
+using std::hex;
+using std::flush;
+using std::boolalpha;
+using std::noboolalpha;
+using std::uppercase;
+using std::nouppercase;
+using std::showbase;
+using std::noshowbase;
+#define F(x) x
+
+#endif
+
 #define STR_HELPER(x) #x
 #define STR(x) STR_HELPER(x)
-
-#ifdef DEBUG_OUT
-#ifndef ARDUINO
-#undef DEBUG_OUT
-#define DEBUG_OUT std::cout
-#endif
-#pragma message("Debugging enabled on output " STR(DEBUG_OUT))
-#endif
 
 #define FUNC_LOCATION '[' << __PRETTY_FUNCTION__ << F(" @ line " STR(__LINE__) "]:\t")
 #define LOCATION "[" __FILE__ ":" STR(__LINE__) "]:\t"
 
 #ifdef DEBUG_OUT
+
+#pragma message("Debugging enabled on output " STR(DEBUG_OUT))
 
 #define DEBUG(x) do { \
   DEBUG_OUT << x << endl; \

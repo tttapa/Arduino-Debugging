@@ -28,7 +28,7 @@ Rather than printing the entire filename, this one prints out just the function 
 ## Example
 
 ```cpp
-#include "Debug.h"
+#include "Debug.hpp"
 
 void setup() {
   Serial.begin(115200);

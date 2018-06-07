@@ -1,16 +1,13 @@
 #include "../Debug.hpp"
 
-void setup() {
-  Serial.begin(115200);
-  while (!Serial);
-}
+int someFunction(int answer);
 
-void loop() {
+int main() {
   DEBUG( "This is the result of `DEBUG`" );
   DEBUGREF( "This is the result of `DEBUGREF`" );
   DEBUGFN( "This is the result of `DEBUGFN`" );
   someFunction(42);
-  delay(5000);
+  return 0;
 }
 
 int someFunction(int answer) {
