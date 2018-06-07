@@ -42,7 +42,7 @@ To execute the result, just run:
 The expected output is:
 ```
 This is the result of `DEBUG`
-[Desktop-Example.cpp:7]:	This is the result of `DEBUGREF`
-[int main() @ line 8]:	This is the result of `DEBUGFN`
-[int someFunction(int) @ line 14]:	The answer is 42
+[Desktop-Example.cpp:7]:    This is the result of `DEBUGREF`
+[int main() @ line 8]:    This is the result of `DEBUGFN`
+[int someFunction(int) @ line 14]:    The answer is 42
 ```
