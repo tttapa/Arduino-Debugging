@@ -12,7 +12,7 @@ All that's needed is the [Arduino PrintStream library](https://github.com/tttapa
 
 ## Installation
 
-The easiest way is to just paste the `Debug.hpp` file into your sketch or project folder. If you're using the Arduino IDE, you can use `CTRL+L` (or _Sketch > Show Sketch Folder_) and paste it there.
+The easiest way is to just paste the `Debug.hpp` file into your sketch or project folder. If you're using the Arduino IDE, you can use `CTRL+K` (or _Sketch > Show Sketch Folder_) and paste it there.
 
 ## API
 
