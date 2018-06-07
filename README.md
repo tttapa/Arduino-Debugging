@@ -106,5 +106,5 @@ If you now open your the `Tools` menu in the Arduino IDE, you should see the deb
 
 If you want to save RAM on your own debug statements, you can use the `F(...)` macro, as usual:
 ```cpp
-DEBUG( F( "I am a debug statement" ) );
+DEBUG( F( "I am a debug statement stored in PROGMEM" ) );
 ```
