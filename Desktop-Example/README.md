@@ -24,19 +24,17 @@ int someFunction(int answer) {
 
 ## Compiling
 
-Open a terminal in this folder, and run:
+To compile a version without debugging, open a terminal in this folder, and run:
 ```sh
 make
 ```
-To compile a version without debugging.
 
-Run
+To compile a version with debugging, run:
 ```sh
 make debug
 ```
-To compile a version with debugging.
 
-To execute the result, just run
+To execute the result, just run:
 ```sh
 ./Desktop-Example
 ```
@@ -44,7 +42,7 @@ To execute the result, just run
 The expected output is:
 ```
 This is the result of `DEBUG`
-[Desktop-Example.cpp:7]:	This is the result of `DEBUGREF`
-[int main() @ line 8]:	This is the result of `DEBUGFN`
-[int someFunction(int) @ line 14]:	The answer is 42
+[Desktop-Example.cpp:7]:    This is the result of `DEBUGREF`
+[int main() @ line 8]:    This is the result of `DEBUGFN`
+[int someFunction(int) @ line 14]:    The answer is 42
 ```
