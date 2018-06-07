@@ -4,7 +4,24 @@
 
 // #define DEBUG_OUT Serial // Uncomment this line to override Arduino IDE debug level
 
+#ifndef PRINTSTREAM_FALLBACK
 #include <PrintStream.h>
+#else
+#include <Arduino.h>
+typedef Print &manipulator(Print &);
+inline Print &endl(Print &printer) {
+  printer.println();
+  printer.flush();
+  return printer;
+}
+template<class T> inline Print &operator<<(Print &printer, const T printable) {
+  printer.print(printable);
+  return printer;
+}
+template<> inline Print &operator<<(Print &printer, manipulator pf) {
+  return pf(printer);
+}
+#endif
 
 #else // No Arduino
 

@@ -8,7 +8,8 @@ On top of that, it can be used for the Arduino, as well as desktop C++. This mak
 
 ## Dependencies
 
-All that's needed is the [Arduino PrintStream library](https://github.com/tttapa/Arduino-PrintStream), that adds `std::cout`-like support for the Arduino (using the `<<`-operator).
+You can install the [Arduino PrintStream library](https://github.com/tttapa/Arduino-PrintStream), that adds more advanced printing options, with `std::cout`-like syntax for the Arduino (using the `<<`-operator).  
+If you're tight on memory, or if you don't want to add the extra dependency, you can also use this debugging library without installing the PrintStream library. (See [below](not-including-printstream))
 
 ## Installation
 
@@ -100,3 +101,14 @@ A complete list of all the AVR boards and their added debug options can be found
 Finally, restart the IDE.  
 If you now open your the `Tools` menu in the Arduino IDE, you should see the debug options:
 ![Screenshot-Arduino-IDE-Debug](Screenshot-Arduino-IDE-Debug.png)
+
+## Not including PrintStream
+
+The PrintStream library contains some useful features, like printing in hexadecimal or binary, setting floating point precision, etc.  
+However, there are good reasons why you would not want to include it (e.g. it adds another dependency, it costs a few bytes of extra memory).
+
+You can still use this Debugging library without installing the PrintStream library, by using the macro `PRINTSTREAM_FALLBACK`:
+```cpp
+#define PRINTSTREAM_FALLBACK
+#include "Debug.hpp"
+```
