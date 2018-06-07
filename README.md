@@ -100,3 +100,11 @@ A complete list of all the AVR boards and their added debug options can be found
 Finally, restart the IDE.  
 If you now open your the `Tools` menu in the Arduino IDE, you should see the debug options:
 ![Screenshot-Arduino-IDE-Debug](Screenshot-Arduino-IDE-Debug.png)
+
+## A note on memory usage
+`DEBUGREF` saves the file name and line number in PROGMEM. `DEBUGFN` stores the function name in RAM, and the line number in PROGMEM. This is because the preprocessor doesn't know the function name, only the compiler does.
+
+If you want to save RAM on your own debug statements, you can use the `F(...)` macro, as usual:
+```cpp
+DEBUG( F( "I am a debug statement" ) );
+```
