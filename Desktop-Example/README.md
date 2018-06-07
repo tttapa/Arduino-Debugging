@@ -24,19 +24,17 @@ int someFunction(int answer) {
 
 ## Compiling
 
-Open a terminal in this folder, and run:
+To compile a version without debugging, open a terminal in this folder, and run:
 ```sh
 make
 ```
-To compile a version without debugging.
 
-Run
+To compile a version with debugging, run:
 ```sh
 make debug
 ```
-To compile a version with debugging.
 
-To execute the result, just run
+To execute the result, just run:
 ```sh
 ./Desktop-Example
 ```
