@@ -55,13 +55,13 @@ using std::noshowbase;
 #pragma message("Debugging enabled on output " STR(DEBUG_OUT))
 
 #define DEBUG(x) do { \
-  DEBUG_OUT << (x) << endl; \
+  DEBUG_OUT << x << endl; \
 } while (0)
 #define DEBUGREF(x) do { \
-  DEBUG_OUT << F(LOCATION) << (x) << endl; \
+  DEBUG_OUT << F(LOCATION) << x << endl; \
 } while (0)
 #define DEBUGFN(x) do { \
-  DEBUG_OUT << FUNC_LOCATION << (x) << endl; \
+  DEBUG_OUT << FUNC_LOCATION << x << endl; \
 } while (0)
 
 #else
