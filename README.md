@@ -9,7 +9,7 @@ On top of that, it can be used for the Arduino, as well as desktop C++. This mak
 ## Dependencies
 
 You can install the [Arduino PrintStream library](https://github.com/tttapa/Arduino-PrintStream), that adds more advanced printing options, with `std::cout`-like syntax for the Arduino (using the `<<`-operator).  
-If you're tight on memory, or if you don't want to add the extra dependency, you can also use this debugging library without installing the PrintStream library. (See [below](not-including-printstream))
+If you're tight on memory, or if you don't want to add the extra dependency, you can also use this debugging library without installing the PrintStream library. (See [below](#not-including-printstream))
 
 ## Installation
 
