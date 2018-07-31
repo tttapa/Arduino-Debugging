@@ -26,7 +26,7 @@ This one behaves similar to `DEBUG`, but it also prints out a reference to the f
 3. `DEBUGFN(x)`  
 Rather than printing the entire filename, this one prints out just the function name and the line number where it was called.
 4. `DEBUGTIME(x)`  
-This macro prints the time since start (format `h:m:s.ms`).
+This macro prints the time since start (format `h:m:s.ms`). This is only supported on Arduino.
 5. `DEBUGVAL(...)`
 This is a variadic macro, and will print the name and value of up to 10 different expressions or variables.
 
