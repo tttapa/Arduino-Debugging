@@ -11,11 +11,18 @@ void loop() {
   DEBUG( "This is the result of `DEBUG`" );
   DEBUGREF( "This is the result of `DEBUGREF`" );
   DEBUGFN( "This is the result of `DEBUGFN`" );
+  DEBUGTIME( "This is the result of `DEBUGTIME`" );
+  int a = 1, b = 2, c = 3;
+  DEBUGVAL( a, b, c );
+  DEBUGVAL( log10(1000) - 2 );
+  DEBUGVAL( millis() );
+  DEBUGVAL( Serial.read() );
   someFunction(42);
+  DEBUG("");
   delay(5000);
 }
 
-int someFunction(int answer) {
-  DEBUGFN( "The answer is " << answer);
-  return answer;
+int someFunction(int parameter) {
+  DEBUGFN( NAMEDVALUE(parameter) );
+  return parameter;
 }

@@ -17,7 +17,7 @@ The easiest way is to just paste the `Debug.hpp` file into your sketch or projec
 
 ## API
 
-The library provides three macros:
+The library provides five macros:
 
 1. `DEBUG(x)`  
 This is the easiest one: it just prints out `x` to the debug output if debugging is enabled. It also terminates the line.
@@ -25,6 +25,14 @@ This is the easiest one: it just prints out `x` to the debug output if debugging
 This one behaves similar to `DEBUG`, but it also prints out a reference to the filename and line number where it was called.
 3. `DEBUGFN(x)`  
 Rather than printing the entire filename, this one prints out just the function name and the line number where it was called.
+4. `DEBUGTIME(x)`  
+This macro prints the time since start (format `h:m:s.ms`).
+5. `DEBUGVAL(...)`
+This is a variadic macro, and will print the name and value of up to 10 different expressions or variables.
+
+There's also a helper macro that can be used inside of any of the first 4 macros above:
+`NAMEDVALUE`  
+It will print out the name and value of an expression or variable.
 
 ## Example
 
@@ -40,21 +48,33 @@ void loop() {
   DEBUG( "This is the result of `DEBUG`" );
   DEBUGREF( "This is the result of `DEBUGREF`" );
   DEBUGFN( "This is the result of `DEBUGFN`" );
+  DEBUGTIME( "This is the result of `DEBUGTIME`" );
+  int a = 1, b = 2, c = 3;
+  DEBUGVAL( a, b, c );
+  DEBUGVAL( log10(1000) - 2 );
+  DEBUGVAL( millis() );
+  DEBUGVAL( Serial.read() );
   someFunction(42);
+  DEBUG("");
   delay(5000);
 }
 
-int someFunction(int answer) {
-  DEBUGFN( "The answer is " << answer);
-  return answer;
+int someFunction(int parameter) {
+  DEBUGFN( NAMEDVALUE(parameter) );
+  return parameter;
 }
 ```
 When debugging is enabled the code above produces the following output:
 ```
 This is the result of `DEBUG`
-[/home/user/Arduino/Debug/Example.ino:10]:	This is the result of `DEBUGREF`
-[void loop() @ line 11]:	This is the result of `DEBUGFN`
-[int someFunction(int) @ line 17]:	The answer is 42
+[/home/pieter/GitHub/Arduino-Debugging/Example/Example.ino:12]:	This is the result of `DEBUGREF`
+[void loop() @ line 13]:	This is the result of `DEBUGFN`
+[0:2:11.085]:	This is the result of `DEBUGTIME`
+a = 1, b = 2, c = 3
+log10(1000) - 2 = 1.00
+millis() = 131085
+Serial.read() = -1
+[int someFunction(int) @ line 26]:	parameter = 42
 ```
 
 ## Enabling debugging and selecting the output stream
