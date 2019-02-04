@@ -5,6 +5,7 @@ Think of it as a file containing your unit tests, for example.
 
 ```cpp
 #include "../Debug.hpp"
+#include "math.h" // log10
 
 int someFunction(int answer);
 
@@ -12,13 +13,16 @@ int main() {
   DEBUG( "This is the result of `DEBUG`" );
   DEBUGREF( "This is the result of `DEBUGREF`" );
   DEBUGFN( "This is the result of `DEBUGFN`" );
+  int a = 1, b = 2, c = 3;
+  DEBUGVAL( a, b, c );
+  DEBUGVAL( log10(1000) - 2 );
   someFunction(42);
   return 0;
 }
 
-int someFunction(int answer) {
-  DEBUGFN( "The answer is " << answer);
-  return answer;
+int someFunction(int parameter) {
+  DEBUGFN( NAMEDVALUE(parameter) );
+  return parameter;
 }
 ```
 
@@ -39,10 +43,14 @@ To execute the result, just run:
 ./Desktop-Example
 ```
 
-The expected output is:
+The expected output of the version with debugging enabled is:
 ```
 This is the result of `DEBUG`
-[Desktop-Example.cpp:7]:    This is the result of `DEBUGREF`
-[int main() @ line 8]:    This is the result of `DEBUGFN`
-[int someFunction(int) @ line 14]:    The answer is 42
+[Desktop-Example.cpp:8]:        This is the result of `DEBUGREF`
+[int main() @ line 9]:  This is the result of `DEBUGFN`
+a = 1, b = 2, c = 3
+log10(1000) - 2 = 1
+[int someFunction(int) @ line 18]:      parameter = 42
 ```
+
+Running the executable without debugging enabled will print nothing.
