@@ -128,13 +128,13 @@ transmit buffer of the Arduino, and it gets sent out asynchronously, while the
 code after the debug statement is executing.  
 The advantage is that it doesn't affect the timing (as long as you're not
 sending more data than can fit in the transmit buffer).  
-On the other hand, it might mean that not all debuggin information is printed
-when the Arduino crashes.  
+On the other hand, it might mean that not all debugging information is printed
+when the Arduino crashes, or when interrupts are disabled.  
 If that's the case you can define the macro `FLUSH_ON_EVERY_DEBUG_STATEMENT` to
 flush the Serial port after each line of debugging information.
 
 Flushing is not supported on ESP32 and ESP8266 boards, because the `Print` class
-on these platforms doesn't have a `flush` method.
+on these platforms doesn't have a `flush` method. (See [issue #1](https://github.com/tttapa/Arduino-Debugging/issues/1))
 
 ## A note on memory usage
 `DEBUGREF` saves the file name and line number in PROGMEM. `DEBUGFN` stores the function name in RAM, and the line number in PROGMEM. This is because the preprocessor doesn't know the function name, only the compiler does.
