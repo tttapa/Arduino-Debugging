@@ -6,6 +6,18 @@ This library aims at facilitating the debugging process by providing simple macr
 
 On top of that, it can be used for the Arduino, as well as desktop C++. This makes it easier to develop on your computer, run unit tests on your computer, and then compile for the Arduino using the exact same code.
 
+## Use the updated version
+
+This library has been merged into the [**Arduino Helpers**](https://github.com/tttapa/Arduino-Helpers) utility library. This repository will no longer be actively maintained.  
+[**Documentation**](https://tttapa.github.io/Arduino-Helpers/Doxygen/d4/da5/group__AH__Debug.html)  
+[**Examples**](https://tttapa.github.io/Arduino-Helpers/Doxygen/d5/d99/Debug_8ino-example.html)
+
+---
+
+# Legacy documentation
+
+It is _strongly_ recommended to use the [new version](https://tttapa.github.io/Arduino-Helpers/Doxygen/d4/da5/group__AH__Debug.html). The documentation below was the original documentation for this repository, and will no longer be updated.
+
 ## Dependencies
 
 You can install the [Arduino PrintStream library](https://github.com/tttapa/Arduino-PrintStream), that adds more advanced printing options, with `std::cout`-like syntax for the Arduino (using the `<<`-operator).  
